@@ -24,8 +24,8 @@ modules:
       - install -D io.osdn.simplesok.svg /app/share/icons/hicolor/scalable/apps/io.osdn.simplesok.svg
     sources:
       - type: archive
-        url: http://simplesok.osdn.io/simplesok-1.0.3.tar.xz
-        sha256: cbfaa6b1befc907652b9420220376377a43e9668131dd18573c7caa9678bc610
+        url: https://simplesok.sourceforge.net/simplesok-1.0.6.tar.xz
+        sha256: 4cb11c81644576d07f9ccc002d906bf844f681690364c3cb18f29c51b8b48275
       - type: file
         path: io.osdn.simplesok.desktop
       - type: file
