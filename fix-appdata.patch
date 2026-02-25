@@ -1,0 +1,57 @@
+From 437bb2717e662997e44e314687155ce028ba6143 Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Wed, 25 Feb 2026 03:30:11 +0300
+Subject: [PATCH] Fix appdata paper cuts
+
+---
+ pkgbuild/flatpak/io.osdn.simplesok.metainfo.xml | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/pkgbuild/flatpak/io.osdn.simplesok.metainfo.xml b/pkgbuild/flatpak/io.osdn.simplesok.metainfo.xml
+index 77c5a22..033f229 100644
+--- a/pkgbuild/flatpak/io.osdn.simplesok.metainfo.xml
++++ b/pkgbuild/flatpak/io.osdn.simplesok.metainfo.xml
+@@ -1,29 +1,30 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop-application">
+-  <id>fr.mateusz.simplesok</id>
+-
++  <id>io.osdn.simplesok</id>
+   <name>Simple Sokoban</name>
+   <summary>Simple sokoban game</summary>
+-
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>MIT-Modern-Variant</project_license>
+-
+   <description>
+     <p>
+       Simple Sokoban is a Sokoban game aimed at playability and portability across systems.
+     </p>
+   </description>
+-
+-  <launchable type="desktop-id">fr.mateusz.simplesok.desktop</launchable>
++  <url type="homepage">https://mateusz.fr/simplesok/</url>
++  <developer id="fr.mateusz">
++    <name>Mateusz Viste</name>
++  </developer>
++  <launchable type="desktop-id">io.osdn.simplesok.desktop</launchable>
++  <content_rating type="oars-1.1" />
+   <screenshots>
+     <screenshot type="default">
+-      <image>http://mateusz.fr/simplesok/simplesok-snapshot.png</image>
++      <image>https://mateusz.fr/simplesok/simplesok-snapshot.png</image>
++      <caption>Gameplay screenshot</caption>
+     </screenshot>
+   </screenshots>
+-
+-  <url type="homepage">http://mateusz.fr/simplesok/</url>
+-  <content_rating type="oars-1.0" />
+   <releases>
++    <release version="1.0.7" type="stable" date="2025-09-19"/>
+     <release version="1.0.4" type="stable" date="2023-06-13"/>
++    <release version="1.0.3" type="stable" date="2023-02-16"/>
+   </releases>
+ </component>
+--
+libgit2 1.7.2
+

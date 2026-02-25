@@ -1,6 +1,6 @@
 app-id: io.osdn.simplesok
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: simplesok
 finish-args:
@@ -10,25 +10,23 @@ finish-args:
   - --socket=x11
   - --socket=pulseaudio
   - --filesystem=home
+cleanup:
+  - /share/doc
+  - /share/man
 modules:
   - name: simplesok
     buildsystem: simple
     build-commands:
-      - sed -i 's/usr\/share\/simplesok/app\/share\/simplesok/g' skin.c
+      - autoreconf -fiv
+      - ./configure --prefix=/app
       - make
-      - install -Dm755 simplesok /app/bin/simplesok
-      - mkdir -p /app/share/simplesok
-      - mv skins /app/share/simplesok/skins
-      - install -D io.osdn.simplesok.metainfo.xml /app/share/metainfo/io.osdn.simplesok.metainfo.xml
-      - install -D io.osdn.simplesok.desktop /app/share/applications/io.osdn.simplesok.desktop
-      - install -D io.osdn.simplesok.svg /app/share/icons/hicolor/scalable/apps/io.osdn.simplesok.svg
+      - make install
+      - install -Dm0644 pkgbuild/flatpak/io.osdn.simplesok.desktop -t /app/share/applications/
+      - install -Dm0644 pkgbuild/flatpak/io.osdn.simplesok.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm0644 pkgbuild/flatpak/io.osdn.simplesok.metainfo.xml -t /app/share/metainfo/
     sources:
       - type: archive
-        url: http://simplesok.osdn.io/simplesok-1.0.3.tar.xz
-        sha256: cbfaa6b1befc907652b9420220376377a43e9668131dd18573c7caa9678bc610
-      - type: file
-        path: io.osdn.simplesok.desktop
-      - type: file
-        path: io.osdn.simplesok.svg
-      - type: file
-        path: io.osdn.simplesok.metainfo.xml
+        url: https://mateusz.fr/simplesok/download/simplesok-1.0.7.tar.xz
+        sha256: 1aa1d3d68920477e9edd2f6a39549bbf3e34a75ca4d09ec1506dafcaacb844a1
+      - type: patch
+        path: fix-appdata.patch
