@@ -3,13 +3,13 @@ runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: simplesok
+rename-icon: io.osdn.simplesok
 finish-args:
   - --device=all
   - --share=ipc
   - --share=network
   - --socket=x11
   - --socket=pulseaudio
-  - --filesystem=home
 cleanup:
   - /share/doc
   - /share/man
