@@ -9,7 +9,6 @@ finish-args:
   - --share=network
   - --socket=x11
   - --socket=pulseaudio
-  - --filesystem=home
 cleanup:
   - /share/doc
   - /share/man
